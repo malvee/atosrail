@@ -73,6 +73,18 @@
 			<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 			<link href  = "../css/styles.css" rel = "stylesheet">
 			
+			<div class = "navbar navbar-default navbar-static-top">
+			<div class = "container">
+
+					<a class = "navbar-brand" class = "active">
+					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 3.8em; float: left; margin-top: -1.25em" src="logo.jpg">
+				</a>
+				
+
+
+			</div>
+			
+		</div>
 			
 
 
@@ -216,18 +228,7 @@
 				</div>
 			</center>
 
-			<div class = "navbar navbar-default navbar-static-top">
-			<div class = "container">
-
-					<a class = "navbar-brand" class = "active">
-					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 3.8em; float: left; margin-top: -1.25em" src="logo.jpg">
-				</a>
-				
-
-
-			</div>
 			
-		</div>
 		
 			
 			
