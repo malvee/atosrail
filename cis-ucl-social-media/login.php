@@ -79,6 +79,7 @@
 
 			<div class = "container">
 				<div class = "row">
+					<br><br>
 					<div class = "col-md-3">
 						<a href="bad.php" class = "btn btn-danger btn-block">Bad</a>
 					</div>
@@ -205,6 +206,7 @@
 					?>
 			</tbody>
 			</table>
+			<br><br>
 
 
 
@@ -213,14 +215,27 @@
 					</div>
 				</div>
 			</center>
+
+			<div class = "navbar navbar-default navbar-static-top">
+			<div class = "container">
+
+					<a class = "navbar-brand" class = "active">
+					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 3.8em; float: left; margin-top: -1.25em" src="logo.jpg">
+				</a>
+				
+
+
+			</div>
+			
+		</div>
 		
 			
 			
 
 		</div>
-		<div class = "navbar navbar-inverse navbar-fixed-bottom" style = "margin-top:5em;">
+		<div class = "navbar navbar-default navbar-fixed-bottom" style = "margin-top:5em;">
 			<div class = "container">
-				<p class = "navbar-text pull-left">2014 Developed by ATOS-4 Proud Team<br>All Rights Reserved</p>
+				<p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
 			</div>
 		</div>
 
