@@ -47,7 +47,7 @@
 			$string .= (" ".$x);
 		}
 		$string = trim($string);
-		$db -> query("UPDATE users SET query= '$string'  WHERE username='malvee'");
+		$db -> query("UPDATE users SET query= '$string'  WHERE username='daviddaly'");
 		$string = "";
 
 
@@ -74,7 +74,7 @@
 				$string .= (" ".$x);
 			}
 			$string = trim($string);
-			$db -> query("UPDATE users SET query= '$string'  WHERE username='malvee'");
+			$db -> query("UPDATE users SET query= '$string'  WHERE username='daviddaly'");
 			$string = "";
 
 			
