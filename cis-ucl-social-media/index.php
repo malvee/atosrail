@@ -7,6 +7,14 @@
 	<link href  = "../css/login.css" rel = "stylesheet">
 	</head>
 	<body>
+
+		<div class = "navbar navbar-default navbar-static-top">
+			<div class = "container">
+				<a href = "index.html" class = "navbar-brand" class = "active">
+					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 4em; float: left; margin-top: -1.25em" src="logo.jpg">
+				</a>
+			</div>
+		</div>
 			
 
 <div class="container">
@@ -39,8 +47,25 @@
 					<input type="checkbox" value="remember-me">Remember Me
 				</label>
 			</div>
+
+			<div class="col-xs-12 col-sm-3">
+						<p class="omb_forgotPwd">
+							<a href="#">Forgot password?</a>
+						</p>
+					</div>
+
 			
-		</div>	    	
+		</div>	
+
+		<div class="row omb_row-sm-offset-3 omb_loginOr">
+					
+					<div class="col-xs-12 col-sm-6">
+						<hr class="omb_hrOr">
+						<span class="omb_spanOr"></span>
+					</div>
+
+				</div>
+
 	</div>
 
 

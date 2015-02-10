@@ -80,13 +80,6 @@
 					<img class = "navbar-brand"   style="padding: 0.5em;width: 4em; height: 3.9em; float: left; margin-top: -1.25em" src="menuconreal.png">
 				</a>
 
-					<!--
-					<div class = "collapse navbar-collapse navHeaderCollapse">
-					<ul class = "nav navbar-nav navbar-centre">
-						<li><a>Welcome to ATOS Rail Sentiment</a></li>
-					</ul>
-					-->
-
 					<ul class = "nav navbar-nav navbar-right">
 						<li><a href = "index.php">Log Out</a></li>
 					</ul>
