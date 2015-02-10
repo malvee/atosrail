@@ -1,0 +1,40 @@
+body{
+	margin-bottom : 0.1em;
+}
+
+*{
+	font-weight: bold;
+}
+
+#marginlength{
+	margin-left: 5em;
+	margin-right: 5em;
+	margin-bottom: 10em;
+}
+#tcentre{
+	background-color: white;
+	margin-top: 3em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+#big{
+	font-size: 2em;
+}
+#picture{
+	width: 10em;
+	height: 15em;
+}
+
+.page-header {
+	margin-top:0;
+}
+
+.space{
+	margin-left: 1em;
+}
+
+.panel-body{
+	padding-top:0;
+}
+
