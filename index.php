@@ -1,4 +1,4 @@
 <html>
-<a href="atosrail.azurewebsites.com/cis-ucl-social-media">Click Here</a>
+<a href="/cis-ucl-social-media">Click Here</a>
 
 </html>
