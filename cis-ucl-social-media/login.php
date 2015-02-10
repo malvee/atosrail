@@ -68,7 +68,7 @@
 			$twitter = new TwitterOAuth($consumer, $counsumerSecret, $accessToken, $accessTokenSecret);
 ?>
 
-			<title>Twitter Analysis</title>
+			<title>ATOS Rail Sentiment</title>
 			<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 			<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 			<link href  = "../css/styles.css" rel = "stylesheet">
@@ -76,22 +76,35 @@
 			<div class = "navbar navbar-default navbar-static-top">
 			<div class = "container">
 
-					<a class = "navbar-brand" class = "active">
-					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 3.8em; float: left; margin-top: -1.25em" src="logo.jpg">
+					<a href="settings.php" class = "navbar-brand" >
+					<img class = "navbar-brand"   style="padding: 0.5em;width: 4em; height: 3.9em; float: left; margin-top: -1.25em" src="menuconreal.png">
 				</a>
-				
+
+					<!--
+					<div class = "collapse navbar-collapse navHeaderCollapse">
+					<ul class = "nav navbar-nav navbar-centre">
+						<li><a>Welcome to ATOS Rail Sentiment</a></li>
+					</ul>
+					-->
+
+					<ul class = "nav navbar-nav navbar-right">
+						<li><a href = "index.php">Log Out</a></li>
+					</ul>
+				</div>
 
 
 			</div>
 			
 		</div>
+
+		
 			
 
 
 
 			<div class = "container">
 				<div class = "row">
-					<br><br>
+					<br>
 					<div class = "col-md-3">
 						<a href="bad.php" class = "btn btn-danger btn-block">Bad</a>
 					</div>
@@ -218,27 +231,28 @@
 					?>
 			</tbody>
 			</table>
-			<br><br>
+			
 
-
+			
+		
 
 
 						</div>
 					</div>
 				</div>
 			</center>
+			<br><br><br><br>
 
 			
-		
-			
-			
-
-		</div>
-		<div class = "navbar navbar-default navbar-fixed-bottom" style = "margin-top:5em;">
+		<div class = "navbar navbar-default navbar-fixed-bottom" >
 			<div class = "container">
 				<p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
 			</div>
 		</div>
+			
+			
+
+		
 
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
