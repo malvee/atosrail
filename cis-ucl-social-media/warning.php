@@ -13,6 +13,23 @@ if ($_SESSION["loggedIn"] ==1)
 	<link href  = "../css/styles.css" rel = "stylesheet">
 	</head>
 	<body>
+			
+			<div class = "navbar navbar-default navbar-static-top">
+			<div class = "container">
+
+					<a href="settings.php" class = "navbar-brand" >
+					<img class = "navbar-brand"   style="padding: 0.5em;width: 4em; height: 3.9em; float: left; margin-top: -1.25em" src="menuconreal.png">
+				</a>
+
+					<ul class = "nav navbar-nav navbar-right">
+						<li><a href = "index.php">Log Out</a></li>
+					</ul>
+				
+
+
+			</div>
+			
+		</div>
 
 
 			<div class = "container">
@@ -75,7 +92,7 @@ if ($_SESSION["loggedIn"] ==1)
 		</div>
 		<div class = "navbar navbar-inverse navbar-fixed-bottom">
 			<div class = "container">
-				<p class = "navbar-text pull-left">2014 Developed by ATOS-4 Proud Team<br>All Rights Reserved</p>
+				<p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
 			</div>
 		</div>
 
