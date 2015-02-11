@@ -94,33 +94,33 @@
 				<div class="side">
 					<nav class="dr-menu">
 						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a class="dr-label">SEARCH</a></div>
-						<ul>
+						
 							<?php
 	$host = "eu-cdbr-azure-north-b.cloudapp.net";
     $user = "b1ab8a4c6aa690";
     $pwd = "efd91e32";
     $db = "atosraiAaM0G4XAp";
-
      $sql_select = "SELECT * FROM users WHERE username = 'daviddaly'";
     $stmt = $conn->query($sql_select);
     $ans = $stmt->fetchAll();
 	$_GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
 	if(!isset($_POST["array"]) || !isset($_POST["sentText"]) )
 	{
+		echo "<ul>";
 		echo "<form action = test.php method = 'POST'>";
+		
 		foreach($_GLOBALS["dbArray"] as $x)
 		{
+			echo "<li>";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
+			echo "</li>";
 		}
-		echo "<br>";
+		
 		echo "<input type = 'text' name = 'sentText'>";
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
-		echo "<br>";
-		echo "<form action=\"login.php\">
-    <input type=\"submit\" value=\"Go to App\">
-	</form>";
-
+		echo "</ul>";
+		
 	}
 	else if ( isset($_POST["array"]))
 	{
@@ -137,8 +137,6 @@
 		$string = trim($string);
 		$db -> query("UPDATE users SET query= '$string'  WHERE username='daviddaly'");
 		$string = "";
-
-
 		if ( isset($_POST["sentText"])  && (preg_replace('/\s+/', '', $_POST["sentText"]) !== "") )
 		{
 			$sentTextArray = preg_split('/\s+/', trim($_POST["sentText"]));
@@ -154,7 +152,6 @@
 				}
 				if ($count == count($_GLOBALS["dbArray"]))
 					array_push($_GLOBALS["dbArray"], $x);
-
 			}
 			$string = "";
 			foreach($_GLOBALS["dbArray"] as $x)
@@ -164,33 +161,29 @@
 			$string = trim($string);
 			$db -> query("UPDATE users SET query= '$string'  WHERE username='daviddaly'");
 			$string = "";
-
 			
 		}
+		echo "<ul>";
 		echo "<form action = test.php method = 'POST'>";
+		
 		foreach($_GLOBALS["dbArray"] as $x)
 		{
+			echo "<li>";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
+			echo "</li>";
 		}
-		echo "<br>";
+		
 		echo "<input type = 'text' name = 'sentText'>";
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
-		echo "<br>";
-		echo "<form action=\"login.php\">
-    <input type=\"submit\" value=\"Go to App\">
-	</form>";
+		echo "</ul>";
+		
+		
 	 }
 	 
     ?>
-							<!--<li><a  href="#">Jason Quinn</a></li>
-							<li><a  href="#">Videos</a></li>
-							<li><a  href="#">Favorites</a></li>
-							<li><a  href="#">Subscriptions</a></li>
-							<li><a  href="#">Downloads</a></li>
-							<li><a  href="#">Settings</a></li>
-							<li><a  href="#">Logout</a></li>-->
-						</ul>
+						
+						
 					</div>
 					</nav>
 				
@@ -346,11 +339,9 @@
 									}
 									
 								}
-
 							}
 				
 						}
-
 				
 					}
 					
@@ -402,8 +393,6 @@
 
 <?php			
 		}
-
-
 	}
 	else
 		echo "You do not have permisiion to view this page";
