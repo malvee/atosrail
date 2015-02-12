@@ -1,4 +1,32 @@
 <html>
+	<head>
+	<title>ATOS Social Media-Testing</title>
+	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
+	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
+	<link href  = "../css/login.css" rel = "stylesheet">
+	</head>
+	<body>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+
+		<div class = "navbar navbar-default navbar-static-top">
+			<div class = "container">
+				<a href = "index.html" class = "navbar-brand" >
+					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 4em; float: left; margin-top: -1.25em" src="logo.jpg">
+				</a>
+
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+					<ul class = "nav navbar-nav navbar-right">
+						<li><a href = "login.php">BACK</a></li>
+						<li><a href = "index.php">LOG OUT</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+
 <?php
 	$host = "eu-cdbr-azure-north-b.cloudapp.net";
     $user = "b1ab8a4c6aa690";
@@ -19,19 +47,26 @@
 	$_GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
 	if(!isset($_POST["array"]) || !isset($_POST["sentText"]) )
 	{
-		echo "<form action = test.php method = 'POST'>";
+		echo"<center>";
+		echo "<form action = settings.php method = 'POST'>";
+		echo"Search ";
+		echo "<input type = 'text' size = '35' name = 'sentText'>";
+		echo "        <input type = 'submit' >"; 
+		echo "</form>";
+		echo"</center>";
+		echo "<ul>";
+	
 		foreach($_GLOBALS["dbArray"] as $x)
 		{
+		
+			echo "<button type = 'button'>";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
+			echo "</button>";
 		}
-		echo "<br>";
-		echo "<input type = 'text' name = 'sentText'>";
-		echo "<input type = 'submit'>"; 
-		echo "</form>";
-		echo "<br>";
-		echo "<form action=\"login.php\">
-    <input type=\"submit\" value=\"Go to App\">
-	</form>";
+		echo "</ul>";
+			
+
+		//echo "<form action=\"login.php\"><input type=\"submit\" value=\"Go to App\"></form>";
 
 	}
 	else if ( isset($_POST["array"]))
@@ -99,4 +134,14 @@
 
 
 ?>
+
+	<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">2014 Developed by ATOS 4 UCL Team<br>All Rights Reserved</p>
+			</div>
+		</div>
+
+
+		
+    </body>
 </html>
