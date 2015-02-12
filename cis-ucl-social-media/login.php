@@ -73,143 +73,23 @@
 			<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 			<link href  = "../css/styles.css" rel = "stylesheet">
 
-			<!--****************Menu code links start*******************-->
-			<link rel="shortcut icon" href="../favicon.ico"> 
-			<link rel="stylesheet" type="text/css" href="css/component.css" />
-			<script src="js/modernizr.custom.js"></script>
-			<!--****************Menu code links end*******************-->
 			
 			<div class = "navbar navbar-default navbar-static-top">
 
 		<div class ="container">
 
-				<!-- ***********************************************************
-										Menucon code start
-					 ***********************************************************-->
-
-			<!-- Codrops top bar -->
 			
-			<div class="main">
-				
-				<div class="side">
-					<nav class="dr-menu">
-						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a class="dr-label">SEARCH</a></div>
-						
-							<?php
-	$host = "eu-cdbr-azure-north-b.cloudapp.net";
-    $user = "b1ab8a4c6aa690";
-    $pwd = "efd91e32";
-    $db = "atosraiAaM0G4XAp";
-     $sql_select = "SELECT * FROM users WHERE username = 'daviddaly'";
-    $stmt = $conn->query($sql_select);
-    $ans = $stmt->fetchAll();
-	$_GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
-	if(!isset($_POST["array"]) || !isset($_POST["sentText"]) )
-	{
-		echo "<ul>";
-		echo "<form action = test.php method = 'POST'>";
-		
-		foreach($_GLOBALS["dbArray"] as $x)
-		{
-			echo "<li>";
-			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
-			echo "</li>";
-		}
-		
-		echo "<input type = 'text' name = 'sentText'>";
-		echo "<input type = 'submit'>"; 
-		echo "</form>";
-		echo "</ul>";
-		
-	}
-	else if ( isset($_POST["array"]))
-	{
-		$_GLOBALS["dbArray"] = array();
-		foreach($_POST["array"] as $x)
-		{
-			array_push($_GLOBALS["dbArray"], $x);
-		}
-		$string = "";
-		foreach($_GLOBALS["dbArray"] as $x)
-		{
-			$string .= (" ".$x);
-		}
-		$string = trim($string);
-		$db -> query("UPDATE users SET query= '$string'  WHERE username='daviddaly'");
-		$string = "";
-		if ( isset($_POST["sentText"])  && (preg_replace('/\s+/', '', $_POST["sentText"]) !== "") )
-		{
-			$sentTextArray = preg_split('/\s+/', trim($_POST["sentText"]));
-			foreach ($sentTextArray as $x)
-			{
-				$count = 0;
-				foreach ($_GLOBALS["dbArray"] as $y)
-				{
-					if (!(strtolower($x) == strtolower($y)))
-						$count++;
-					else
-						break;
-				}
-				if ($count == count($_GLOBALS["dbArray"]))
-					array_push($_GLOBALS["dbArray"], $x);
-			}
-			$string = "";
-			foreach($_GLOBALS["dbArray"] as $x)
-			{
-				$string .= (" ".$x);
-			}
-			$string = trim($string);
-			$db -> query("UPDATE users SET query= '$string'  WHERE username='daviddaly'");
-			$string = "";
-			
-		}
-		echo "<ul>";
-		echo "<form action = test.php method = 'POST'>";
-		
-		foreach($_GLOBALS["dbArray"] as $x)
-		{
-			echo "<li>";
-			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
-			echo "</li>";
-		}
-		
-		echo "<input type = 'text' name = 'sentText'>";
-		echo "<input type = 'submit'>"; 
-		echo "</form>";
-		echo "</ul>";
-		
-		
-	 }
-	 
-    ?>
-						
-						
-					</div>
-					</nav>
-				
+					<a href="settings.php" class = "navbar-brand" >
+					<img class = "navbar-brand"   style="padding: 0.5em;width: 3.8em; height: 3.8em; float: left; margin-top: -1.25em" src="menuconreal.png">
+				</a>
 
-			<div class = "collapse navbar-collapse navHeaderCollapse">
+					<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
 						<li><a href = "index.php">LOG OUT</a></li>
 					</ul>
 				</div>
 
-</div>		
-		</div>
-		</div>
-			</div>
-				
-		<!-- /container-->
-		<script src="js/ytmenu.js"></script>
-
-
-				<!-- ***********************************************************
-										Menucon code end
-					 ***********************************************************-->
-
-					<!--<a href="settings.php" class = "navbar-brand" >
-					<img class = "navbar-brand"   style="padding: 0.5em;width: 3.8em; height: 3.8em; float: left; margin-top: -1.25em" src="menuconreal.png">
-				</a>-->
+				</div></div>
 
 
 					
