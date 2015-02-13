@@ -125,7 +125,7 @@ if($_SESSION["loggedIn"] == 1)
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
 		echo "<br>";
-		echo "<form action=\"all.php\">
+		echo "<form action=\"login.php\">
     <input type=\"submit\" value=\"Go to App\">
 	</form>";
 	 }
