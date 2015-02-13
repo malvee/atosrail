@@ -1,4 +1,32 @@
 <html>
+
+<head>
+	<title>Settings</title>
+	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
+	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
+	<link href  = "../css/login.css" rel = "stylesheet">
+	</head>
+	<body>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+
+		<div class = "navbar navbar-default navbar-static-top">
+			<div class = "container">
+				<a href = "index.html" class = "navbar-brand" >
+					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 4em; float: left; margin-top: -1.25em" src="logo.jpg">
+				</a>
+
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+					<ul class = "nav navbar-nav navbar-right">
+						<li><a href = "login.php">BACK</a></li>
+						<li><a href = "index.php">LOG OUT</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
 <?php
 session_start();
 error_reporting(0);
@@ -112,4 +140,16 @@ else
 
 
 ?>
+
+
+<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">2014 Developed by ATOS 4 UCL Team<br>All Rights Reserved</p>
+			</div>
+		</div>
+
+
+		
+    </body>
+
 </html>
