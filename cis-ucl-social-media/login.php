@@ -60,6 +60,7 @@
 				$twitterQueryString .= "%40".$x."%20OR%20"."%23".$x."%20OR%20";
 			}
 			$_SESSION["loggedIn"] = 1;
+			
 			$api_key='ba28ee0ae71432fe85206c36d0e6a641';
 			$consumer = "5blMAfvgOmZBZyfM2usfcX97c";
 			$counsumerSecret = "oYVA9roicxA0nVSX7kXujVnb0Eyn0EFpqy4cSpQ5ZpUyzxeaHQ";
@@ -81,7 +82,7 @@
 			
 					<a href="settings.php" class = "navbar-brand" >
 					<img class = "navbar-brand"   style="padding: 0.5em;width: 3.8em; height: 3.8em; float: left; margin-top: -1.25em" src="menuconreal.png">
-				</a>
+					</a>
 
 					<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
