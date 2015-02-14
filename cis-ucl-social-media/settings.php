@@ -13,13 +13,13 @@
 
 		<div class = "navbar navbar-default navbar-static-top">
 			<div class = "container">
-				<a href = "index.html" class = "navbar-brand" >
+				<a href = "index.php" class = "navbar-brand" >
 					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 4em; float: left; margin-top: -1.25em" src="logo.jpg">
 				</a>
 
 				<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
-						<li><a href = "login.php">BACK</a></li>
+						<li><a href = "all.php">BACK</a></li>
 						<li><a href = "index.php">LOG OUT</a></li>
 					</ul>
 				</div>
