@@ -48,19 +48,31 @@ error_reporting(0);
     $sql_select = "SELECT * FROM users WHERE username = 'daviddaly'";
     $stmt = $conn->query($sql_select);
     $ans = $stmt->fetchAll();
-	$_GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
+	$GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
 	if(!isset($_POST["array"]) || !isset($_POST["sentText"]) )
 	{
 		echo "<form action = settings.php method = 'POST'>";
-		foreach($_GLOBALS["dbArray"] as $x)
+		echo"<div class = \"container\">";
+		echo"<div class = \"row\">";
+		foreach($GLOBALS["dbArray"] as $x)
 		{
+			echo"<div class = \"col-md-3\">";
+			echo "<button class=\"btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
+			echo "</button>";
+			echo"</div>";
+			if($GLOBALS % 4 === 0)
+			{
+				echo "<br><br>";
+			}
 		}
-		echo "<br>";
+		
+		echo"</div></div>";
+		//echo "<br>";
 		echo "<input type = 'text' name = 'sentText'>";
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
-		echo "<br>";
+		//echo "<br>";
 		echo "<form action=\"all.php\">
     <input type=\"submit\" value=\"Go to App\">
 	</form>";
@@ -68,13 +80,13 @@ error_reporting(0);
 	}
 	else if ( isset($_POST["array"]))
 	{
-		$_GLOBALS["dbArray"] = array();
+		$GLOBALS["dbArray"] = array();
 		foreach($_POST["array"] as $x)
 		{
-			array_push($_GLOBALS["dbArray"], $x);
+			array_push($GLOBALS["dbArray"], $x);
 		}
 		$string = "";
-		foreach($_GLOBALS["dbArray"] as $x)
+		foreach($GLOBALS["dbArray"] as $x)
 		{
 			$string .= (" ".$x);
 		}
@@ -91,19 +103,19 @@ error_reporting(0);
 			foreach ($sentTextArray as $x)
 			{
 				$count = 0;
-				foreach ($_GLOBALS["dbArray"] as $y)
+				foreach ($GLOBALS["dbArray"] as $y)
 				{
 					if (!(strtolower($x) == strtolower($y)))
 						$count++;
 					else
 						break;
 				}
-				if ($count == count($_GLOBALS["dbArray"]))
-					array_push($_GLOBALS["dbArray"], $x);
+				if ($count == count($GLOBALS["dbArray"]))
+					array_push($GLOBALS["dbArray"], $x);
 
 			}
 			$string = "";
-			foreach($_GLOBALS["dbArray"] as $x)
+			foreach($GLOBALS["dbArray"] as $x)
 			{
 				$string .= (" ".$x);
 			}
@@ -116,15 +128,28 @@ error_reporting(0);
 			
 		}
 		echo "<form action = settings.php method = 'POST'>";
-		foreach($_GLOBALS["dbArray"] as $x)
+		echo"<div class = \"container\">";
+		echo"<div class = \"row\">";
+		foreach($GLOBALS["dbArray"] as $x)
 		{
+			
+			echo"<div class = \"col-md-3\">";
+			echo "<button class=\"btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
+			echo "</button>";
+			echo"</div>";
+			if($GLOBALS % 4 === 0)
+			{
+				echo "<br><br>";
+			}
 		}
+		
+		echo"</div></div>";
 		echo "<br>";
 		echo "<input type = 'text' name = 'sentText'>";
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
-		echo "<br>";
+		//echo "<br>";
 		echo "<form action=\"login.php\">
     <input type=\"submit\" value=\"Go to App\">
 	</form>";
