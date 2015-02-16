@@ -13,7 +13,7 @@
 
 		<div class = "navbar navbar-default navbar-static-top">
 			<div class = "container">
-				<a href = "index.php" class = "navbar-brand" >
+				<a  class = "navbar-brand" >
 					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 4em; float: left; margin-top: -1.25em" src="logo.jpg">
 				</a>
 
@@ -51,31 +51,35 @@ error_reporting(0);
 	$GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
 	if(!isset($_POST["array"]) || !isset($_POST["sentText"]) )
 	{
+		echo"<center>";
 		echo "<form action = settings.php method = 'POST'>";
 		echo"<div class = \"container\">";
 		echo"<div class = \"row\">";
 		foreach($GLOBALS["dbArray"] as $x)
 		{
+			if( $GLOBALS % 4 ==3)
+			{
+				echo "<br>";
+			}
 			echo"<div class = \"col-md-3\">";
 			echo "<button class=\"btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
 			echo "</button>";
 			echo"</div>";
-			if($GLOBALS % 4 === 0)
-			{
-				echo "<br><br>";
-			}
+			
 		}
 		
 		echo"</div></div>";
-		//echo "<br>";
+		echo"<br><br>";
 		echo "<input type = 'text' name = 'sentText'>";
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
-		//echo "<br>";
+		echo"</center>";
+		/*echo"<center>";
 		echo "<form action=\"all.php\">
     <input type=\"submit\" value=\"Go to App\">
 	</form>";
+	echo"</center>";*/
 
 	}
 	else if ( isset($_POST["array"]))
@@ -127,32 +131,35 @@ error_reporting(0);
 
 			
 		}
+		echo"<center>";
 		echo "<form action = settings.php method = 'POST'>";
 		echo"<div class = \"container\">";
 		echo"<div class = \"row\">";
+		
 		foreach($GLOBALS["dbArray"] as $x)
 		{
-			
+			if( $GLOABLS % 4 ==3)
+			{
+				echo "<br>";
+			}
 			echo"<div class = \"col-md-3\">";
 			echo "<button class=\"btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
 			echo "</button>";
 			echo"</div>";
-			if($GLOBALS % 4 === 0)
-			{
-				echo "<br><br>";
-			}
 		}
 		
 		echo"</div></div>";
-		echo "<br>";
+		echo"<br><br>";
 		echo "<input type = 'text' name = 'sentText'>";
 		echo "<input type = 'submit'>"; 
 		echo "</form>";
-		//echo "<br>";
+		echo"</center>";
+		/*echo"<center>";
 		echo "<form action=\"login.php\">
     <input type=\"submit\" value=\"Go to App\">
 	</form>";
+	echo"</center>";*/
 	 }
 // }
 // else
