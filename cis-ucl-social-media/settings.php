@@ -30,8 +30,8 @@
 <?php
 session_start();
 error_reporting(0);
-// if($_SESSION["loggedIn"] == 1)
-// {
+ if($_SESSION["loggedIn"] == 1)
+ {
 	$host = "eu-cdbr-azure-north-b.cloudapp.net";
     $user = "b1ab8a4c6aa690";
     $pwd = "efd91e32";
@@ -161,11 +161,11 @@ error_reporting(0);
 	</form>";
 	echo"</center>";*/
 	 }
-// }
-// else
-// {
-// 	echo "You do not have permission to view this page";
-// }
+ }
+ else
+ {
+ 	echo "You do not have permission to view this page";
+ }
 	 
 	
 	
