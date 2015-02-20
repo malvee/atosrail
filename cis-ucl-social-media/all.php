@@ -115,7 +115,7 @@ if ($_SESSION['loggedIn'] == 1)
 		<br><br><br><br>
 
 			
-		<div class = "navbar navbar-default navbar-fixed-bottom" >
+		<div class = "navbar navbar-default navbar-fixed-bottom">
 			<div class = "container">
 				<p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
 			</div>
