@@ -5,11 +5,12 @@
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/login.css" rel = "stylesheet">
-	</head>
-	<body>
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="js/bootstrap.js"></script>
+	</head>
+	<body>
+
 
 		<div class = "navbar navbar-default navbar-static-top">
 			<div class = "container">
@@ -55,18 +56,20 @@ error_reporting(0);
 		echo "<form action = settings.php method = 'POST'>";
 		echo"<div class = \"container\">";
 		echo"<div class = \"row\">";
+		$countForBreakOne = 0;
 		foreach($GLOBALS["dbArray"] as $x)
 		{
-			if( $GLOBALS % 4 ==3)
-			{
-				echo "<br>";
-			}
+			
 			echo"<div class = \"col-md-3\">";
 			echo "<button class=\"btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
 			echo "</button>";
 			echo"</div>";
-			
+			$countForBreakOne++;
+			if( ($countForBreakOne % 4) ==0)
+			{
+				echo "<br>";
+			}
 		}
 		
 		echo"</div></div>";
@@ -135,19 +138,20 @@ error_reporting(0);
 		echo "<form action = settings.php method = 'POST'>";
 		echo"<div class = \"container\">";
 		echo"<div class = \"row\">";
-		$countForBreak = 0;
+		$countForBreakTwo = 0;
 		foreach($GLOBALS["dbArray"] as $x)
 		{
-			if( $countForBreak % 4 ==3)
-			{
-				echo "<br>";
-			}
+			
 			echo"<div class = \"col-md-3\">";
 			echo "<button class=\"btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
 			echo "</button>";
 			echo"</div>";
-			$countForBreak++;
+			$countForBreakTwo++;
+			if( ($countForBreakTwo % 4) == 0)
+			{
+				echo "<br>";
+			}
 		}
 		
 		echo"</div></div>";
@@ -162,7 +166,7 @@ error_reporting(0);
 	</form>";
 	echo"</center>";*/
 	 }
- }
+ 
  //else
  //{
  	//echo "You do not have permission to view this page";
