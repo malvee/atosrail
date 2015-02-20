@@ -1,5 +1,19 @@
 <html>
+
+<head>
+	
+	<title>ATOS Rail Sentiment</title>
+			<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
+			<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
+			<link href  = "../css/styles.css" rel = "stylesheet">
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="../js/bootstrap.js"></script>
+		<script src="../twemoji/twemoji.min.js"></script>
+		
+</head>
+
 <body>
+	
 <?php
     include "testDate.php"; 
 	ini_set('max_execution_time', 300);
@@ -8,7 +22,7 @@
 	session_start();
 	function addhref($x)
 	{
-		return "<a href=\"" . $x . "\" target=\"_blank\" > ". $x . "</a>" ;
+		return "<a href=\\\"" . $x . "\\\" target=\\\"_blank\\\" > ". $x . "</a>" ;
 	}
 	function isLink($x)    // gets a string and prints out the links within it
 	{	
@@ -69,10 +83,7 @@
 			$twitter = new TwitterOAuth($consumer, $counsumerSecret, $accessToken, $accessTokenSecret);
 ?>
 
-			<title>ATOS Rail Sentiment</title>
-			<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
-			<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
-			<link href  = "../css/styles.css" rel = "stylesheet">
+		
 
 			
 			<div class = "navbar navbar-default navbar-static-top">
@@ -164,8 +175,31 @@
 									$sentiment=$DatumboxAPI->SentimentAnalysis($text);
 									if ((string)$sentiment == "positive")
 									{
+										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"success\">
-    									<center><td>".isLink((string)$t->text)."</td></center>"
+    									<center><td>";
+    									?>
+										
+										<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->
+    									
+    									<script type="text/javascript">
+    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+   										var f = twemoji.parse(e);
+    									document.write(f);
+   										</script>
+										
+										<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+
+    									<?php 
+    									echo"</td></center>"
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
@@ -178,8 +212,30 @@
 									}
 									else if((string)$sentiment == "negative")
 									{
+										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"danger\">
-    									<center><td>".islink((string)$t->text)."</td></center>"
+    									<center><td>";?>
+
+    									<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+    									
+    									<script type="text/javascript">
+    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+   										var f = twemoji.parse(e);
+    									document.write(f);
+   										</script>
+										
+										<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+
+    									<?php 
+    									echo"</td></center>"
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
@@ -192,8 +248,30 @@
 									}
 									else if((string)$sentiment == "neutral")
 									{
+										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"warning\">
-    									<center><td>".islink((string)$t->text)."</td></center>"
+    									<center><td>";?>
+
+    									<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+    									
+    									<script type="text/javascript">
+    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+   										var f = twemoji.parse(e);
+    									document.write(f);
+   										</script>
+										
+										<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+
+    									<?php 
+    									echo"</td></center>"
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
@@ -206,8 +284,30 @@
 									}
 									else
 									{
+										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"warning\">
-    									<center><td>".isLink((string)$t->text)."</td></center>"
+    									<center><td>";?>
+
+    									<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+    									
+    									<script type="text/javascript">
+    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+   										var f = twemoji.parse(e);
+    									document.write(f);
+   										</script>
+										
+										<!--
+    									**************************************************************
+    									Javascript code for Emoticon Rendering and Printing Tweet Text
+    									**************************************************************	
+    								-->	
+
+    									<?php 
+    									echo"</td></center>"
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
@@ -255,8 +355,6 @@
 		
 
 
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="../js/bootstrap.js"></script>
 
 
 
