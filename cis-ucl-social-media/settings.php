@@ -5,6 +5,7 @@
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/login.css" rel = "stylesheet">
+	<link href  = "../css/buttonstyle.css" rel = "stylesheet">
 	</head>
 	<body>
 
@@ -138,12 +139,12 @@ error_reporting(0);
 		
 		foreach($GLOBALS["dbArray"] as $x)
 		{
-			if( $GLOABLS % 4 ==3)
+			/*if( $GLOABLS % 4 ==3)
 			{
 				echo "<br>";
-			}
+			}*/
 			echo"<div class = \"col-md-3\">";
-			echo "<button class=\"btn btn-lg btn btn-block\">";
+			echo "<button class=\"buttonParam btn btn-lg btn btn-block\">";
 			echo "<input type = 'checkbox' name = 'array[]' value = '$x' checked> $x ";
 			echo "</button>";
 			echo"</div>";
