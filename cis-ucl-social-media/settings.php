@@ -33,6 +33,8 @@ session_start();
 error_reporting(0);
  //if($_SESSION["loggedIn"] == 1)
  //{
+	$countForBreakOne = 0;
+	$countForBreakTwo = 0;
 	$host = "eu-cdbr-azure-north-b.cloudapp.net";
     $user = "b1ab8a4c6aa690";
     $pwd = "efd91e32";
@@ -56,7 +58,7 @@ error_reporting(0);
 		echo "<form action = settings.php method = 'POST'>";
 		echo"<div class = \"container\">";
 		echo"<div class = \"row\">";
-		$countForBreakOne = 0;
+		
 		foreach($GLOBALS["dbArray"] as $x)
 		{
 			
@@ -138,7 +140,7 @@ error_reporting(0);
 		echo "<form action = settings.php method = 'POST'>";
 		echo"<div class = \"container\">";
 		echo"<div class = \"row\">";
-		$countForBreakTwo = 0;
+		
 		foreach($GLOBALS["dbArray"] as $x)
 		{
 			

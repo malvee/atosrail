@@ -20,10 +20,15 @@
 	include "twitteroauth.php";
 	include "DatumboxAPI.php";
 	session_start();
-	function addhref($x)
-	{
-		return "<a href=\\\"" . $x . "\\\" target=\\\"_blank\\\" > ". $x . "</a>" ;
-	}
+
+
+ 	function addhref($x)
+ 	{
+		return "<a href=\"" . $x . " \"> " . $x . "</a>" ;
+		return "<a href=\"" . $x . "\" target=\"_blank\" > ". $x . "</a>" ;
+ 	}
+
+	
 	function isLink($x)    // gets a string and prints out the links within it
 	{	
 		$words = explode(" ", $x);
@@ -187,7 +192,7 @@
     								-->
     									
     									<script type="text/javascript">
-    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
@@ -223,7 +228,7 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
@@ -259,7 +264,7 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
@@ -295,7 +300,7 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = "<?php echo $tweetText; ?>"; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
