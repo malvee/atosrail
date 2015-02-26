@@ -31,8 +31,8 @@
 <?php
 session_start();
 error_reporting(0);
- //if($_SESSION["loggedIn"] == 1)
- //{
+ if($_SESSION["loggedIn"] == 1)
+ {
 	$countForBreakOne = 0;
 	$countForBreakTwo = 0;
 	$host = "eu-cdbr-azure-north-b.cloudapp.net";
@@ -70,7 +70,8 @@ error_reporting(0);
 			$countForBreakOne++;
 			if( ($countForBreakOne % 4) ==0)
 			{
-				echo "<br>";
+				echo "<br></br>";
+				echo "<br></br>";
 			}
 		}
 		
@@ -152,7 +153,8 @@ error_reporting(0);
 			$countForBreakTwo++;
 			if( ($countForBreakTwo % 4) == 0)
 			{
-				echo "<br>";
+				echo "<br></br>";
+				echo "<br></br>";
 			}
 		}
 		
@@ -169,10 +171,10 @@ error_reporting(0);
 	echo"</center>";*/
 	 }
  
- //else
- //{
- 	//echo "You do not have permission to view this page";
- //}
+ else
+ {
+ 	echo "You do not have permission to view this page";
+ }
 	 
 	
 	
