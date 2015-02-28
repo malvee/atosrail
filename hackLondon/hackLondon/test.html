@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<script>
+function validateForm() {
+	var z =  document.forms["myForm"]["email"].value;
+    var x = document.forms["myForm"]["fpassword"].value;
+    var y = document.forms["myForm"]["fpassword2"].value;
+    if (x != y) {
+        alert("The passwords must match");
+        return false;
+    }
+    if (x == null || x == "" || y == null || y == "" || z == null || z == "") {
+        alert("Please fill out all the details.");
+        return false;
+    }
+}
+</script>
+</head>
+
+<body>
+<form name="myForm" action="test2.php"
+onsubmit="return validateForm()" method="post">
+email: <input type="text" name="email">
+Password: <input type="password" name="fpassword">
+Re-type Password: <input type="password" name="fpassword2">
+<input type="submit" value="Submit">
+</form>
+</body>
+
+</html>
