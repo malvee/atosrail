@@ -55,7 +55,7 @@ function dateF($x)
  		$nowdates[$i] = $local;
  		$i++;
 	}
-	$nowdates[2] += 7;
+	$nowdates[2] += 8;
 	
 	if(strncmp($nowdates[8], $tweetdates[0], 3) == 0)  // same day of the week
 		if(strncmp(extend($nowdates[3]), $tweetdates[2], 2) == 0)    // same day of the month
