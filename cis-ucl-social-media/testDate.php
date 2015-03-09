@@ -11,7 +11,7 @@ function findMinDif($x, $y, $z)
  		$TweettotalMin += 60* $local;
  	if ($index == 1)
  		$TweettotalMin += $local;
- 		$index++;
+ 	$index++;
 	}
 	$realtotalMin = 60*$y + $z ;
 	return $realtotalMin - $TweettotalMin;
@@ -62,7 +62,7 @@ function dateF($x)
 				if(strncmp($nowdates[6], $tweetdates[5], 4) == 0) // same year
 				{
 					$minutesdif = findMinDif($tweetdates[3], $nowdates[2], $nowdates[1]);
-					$hours = floor($minutesdif / 60) - 1;
+					$hours = floor($minutesdif / 60) + 8;
 					$minutes = $minutesdif % 60 ;
 					if($minutes == 0 && $hours == 0)
 						return "A few seconds ago";
@@ -166,7 +166,7 @@ function dateF($x)
 }
 
 
-//echo dateF("Wed Feb 04 21:00:00 +0000 2015");
+echo dateF("Wed Feb 04 21:00:00 +0000 2015");
 
 ?>
 </html>
