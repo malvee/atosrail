@@ -192,9 +192,8 @@
     								-->
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addslashes($tweetText); ?>'; 
-   										var f = twemoji.parse(e);
-    									document.write(f);
+    									var e = twemoji.parse('<?php echo addslashes($tweetText); ?>'); 
+    									document.write(e);
    										</script>
 										
 										<!--
@@ -228,9 +227,8 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addslashes($tweetText); ?>';
-   										var f = twemoji.parse(e);
-    									document.write(f);
+    									var e = twemoji.parse('<?php echo addslashes($tweetText); ?>'); 
+    									document.write(e);
    										</script>
 										
 										<!--
@@ -264,9 +262,8 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addslashes($tweetText); ?>'; 
-   										var f = twemoji.parse(e);
-    									document.write(f);
+    									var e = twemoji.parse('<?php echo addslashes($tweetText); ?>'); 
+    									document.write(e);
    										</script>
 										
 										<!--
@@ -300,9 +297,8 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addslashes($tweetText); ?>'; 
-   										var f = twemoji.parse(e);
-    									document.write(f);
+    									var e = twemoji.parse('<?php echo addslashes($tweetText); ?>'); 
+    									document.write(e);
    										</script>
 										
 										<!--
