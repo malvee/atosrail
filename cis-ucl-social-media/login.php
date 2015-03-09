@@ -192,7 +192,7 @@
     								-->
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addslashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
@@ -228,7 +228,7 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addslashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
@@ -264,7 +264,7 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addslashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
@@ -300,7 +300,7 @@
     								-->	
     									
     									<script type="text/javascript">
-    									var e = '<?php echo addSlashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
+    									var e = '<?php echo addslashes($tweetText); ?>'; //http://stackoverflow.com/questions/4287357/access-php-variable-in-javascript
    										var f = twemoji.parse(e);
     									document.write(f);
    										</script>
