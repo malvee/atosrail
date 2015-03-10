@@ -1,7 +1,7 @@
 
 <html>
 	<head>
-	<title>The Hackers Social Network</title>
+	<title>The Collaborators Network</title>
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/login.css" rel = "stylesheet">
@@ -38,7 +38,7 @@ function validateForm() {
     
 
     <div class="omb_login">
-    	<h3 class="omb_authTitle">Welcome to Spoofed</h3>
+    	<h3 class="omb_authTitle">Welcome to InstaChat</h3>
 		
 		<div class="row omb_row-sm-offset-3">
 			<div class="col-xs-12 col-sm-6">	
