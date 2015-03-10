@@ -54,5 +54,4 @@ function returnSentiment($a)
 	
 }
 
-echo returnSentiment("  insulting insultingly ");
 ?>
