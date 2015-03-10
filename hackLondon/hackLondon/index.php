@@ -83,7 +83,7 @@ function validateForm() {
 
         	<div class = "navbar navbar-default navbar-fixed-bottom">
 			<div class = "container">
-				<p class = "navbar-text pull-left">2014 Developed by Sumaiya<br>All Rights Reserved</p>
+				<p class = "navbar-text pull-left">2014 Developed by Sumaiya & Sachi<br>All Rights Reserved</p>
 			</div>
 		</div>
 		
