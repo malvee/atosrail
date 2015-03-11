@@ -68,7 +68,7 @@ if ($_SESSION['loggedIn'] == 1)
 					$array = $_SESSION["passed_array"];
 					foreach( $array["sentiment"] as $temp)
 					{
-						if ($temp == "b")
+						if ($temp == "negative")
 						{
 
  							echo "<tr class = \"danger\"> <center><td>";
@@ -88,7 +88,7 @@ if ($_SESSION['loggedIn'] == 1)
     									."<center><td>".$array['created_at'][$count]."</td></center>"
   										."</tr>";
 						}
-						else if ($temp == "g")
+						else if ($temp == "positive")
 						{
  echo "<tr class = \"success\">
     									<center><td>";

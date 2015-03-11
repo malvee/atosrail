@@ -167,7 +167,7 @@ function dateF($x)
 }
 
 
-echo dateF("Mon Mar 09 16:00:00 +0000 2015");
+
 
 ?>
 </html>

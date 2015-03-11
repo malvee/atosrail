@@ -67,7 +67,7 @@ if ($_SESSION["loggedIn"] ==1)
 					$array = $_SESSION["passed_array"];
 					foreach( $array["sentiment"] as $temp)
 					{
-						if ($temp == "g")
+						if ($temp == "positive")
 						{
 
 echo "<tr class = \"success\">

@@ -19,6 +19,17 @@
     include "runAlgo.php";
 	include "twitteroauth.php";
 	session_start();
+	function safeTweet($x)
+	{
+		$xArray =  preg_split('/\s+/', $x);
+		$newStr = '';
+		foreach ($xArray as $y)
+			{
+				$newStr .= ' '.trim($y);
+			}
+			return $newStr;
+
+	}
  	function addhref($x)
  	{
 		return " <a href=' " . $x . " ' target='_blank' > ". $x . "</a>" ;
@@ -155,14 +166,15 @@
 								{
 									$text =  preg_replace("/[^a-zA-Z ]+/", "", $t->text);
 									$sentiment=returnSentiment($text);
+									$tweetText = isLink((string)$t->text);
+									$tweetText = safeTweet($tweetText);
 									if ((string)$sentiment == "g")
 									{
-										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"success\">
     									<center><td>";
     									?>
     									<script>
-    									var e = twemoji.parse("<?php echo $tweetText; ?>"); 
+    									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
     									document.write(e);
    										</script>
     									<?php 
@@ -179,11 +191,10 @@
 									}
 									else if((string)$sentiment == "b")
 									{
-										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"danger\">
     									<center><td>";?>
     									<script >
-    									var e = twemoji.parse("<?php echo $tweetText; ?>"); 
+    									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
     									document.write(e);
    										</script>
     									<?php 
@@ -200,11 +211,10 @@
 									}
 									else if((string)$sentiment == "n")
 									{
-										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"warning\">
     									<center><td>";?>
     									<script>
-    									var e = twemoji.parse("<?php echo $tweetText; ?>"); 
+    									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
     									document.write(e);
    										</script>
     									<?php 
@@ -221,11 +231,10 @@
 									}
 									else
 									{
-										$tweetText = isLink((string)$t->text);
 										echo "<tr class = \"warning\">
     									<center><td>";?>
     									<script>
-    									var e = twemoji.parse("<?php echo $tweetText; ?>"); 
+    									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
     									document.write(e);
    										</script>
     									<?php 
