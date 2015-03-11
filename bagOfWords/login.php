@@ -41,7 +41,7 @@
 		$counts = 0;
 		foreach ($words as $word) 
 		{
-			if(strncmp("http://", $word, 7) == 0)
+			if(strncmp("http://", $word, 7) == 0 || strncmp("https://", $word, 8) == 0)
 			{
 				$replacement = array ($counts => addhref($word));
 				$words = array_replace($words, $replacement);
@@ -182,7 +182,7 @@
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
-					  					$array["text"][$count] = (string) isLink((string)$t->text);
+					  					$array["text"][$count] = (string) $tweetText;
 										$array["sentiment"][$count] = (string) $sentiment;
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string) dateF($t->created_at);
@@ -202,7 +202,7 @@
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
-					  					$array["text"][$count] = (string) isLink((string)$t->text);
+					  					$array["text"][$count] = (string) $tweetText;
 										$array["sentiment"][$count] = (string) $sentiment;
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string)dateF($t->created_at);
@@ -222,7 +222,7 @@
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
-					  					$array["text"][$count] = (string) isLink((string)$t->text);
+					  					$array["text"][$count] = (string) $tweetText;
 										$array["sentiment"][$count] = (string) $sentiment;
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string) dateF($t->created_at);
@@ -242,7 +242,7 @@
     									."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
     									."<center><td>".dateF($t->created_at)."</td></center>"
   										."</tr>";
-					  					$array["text"][$count] = (string) isLink((string)$t->text);
+					  					$array["text"][$count] = (string) $tweetText;
 										$array["sentiment"][$count] = "neutral";
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string) dateF($t->created_at);
