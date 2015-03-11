@@ -165,9 +165,11 @@
 								if ( !isIn( preg_replace("/[^a-zA-Z ]+/", "", $t->text), $count))
 								{
 									$text =  preg_replace("/[^a-zA-Z ]+/", "", $t->text);
-									$sentiment=returnSentiment($text);
+									$returnSentiment = returnSentiment($text);
+									$sentiment= $returnSentiment[1];
+									$score = $returnSentiment[0];
 									$tweetText = isLink((string)$t->text);
-									$tweetText = safeTweet($tweetText);
+									$tweetText = safeTweet($tweetText). " ". $score;
 									if ((string)$sentiment == "g")
 									{
 										echo "<tr class = \"success\">

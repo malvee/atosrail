@@ -45,14 +45,25 @@ function returnSentiment($a)
 		}
 	
 	}
+	$returnArray = array();
 	if ($score > 0)
-		return "g";
+	{
+		$returnArray[0] = $score;
+		$returnArray[1] = "g";
+	}
 	else if ($score < 0)
-		return "b";
+	{
+		$returnArray[0] = $score;
+		$returnArray[1] = "b";
+	}
 	else
-		return "n";
+	{
+		$returnArray[0] = $score;
+		$returnArray[1] = "n";
+	}
+	return $returnArray;
 	
 }
 
-echo returnSentiment("  insulting insultingly ");
+
 ?>
