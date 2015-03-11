@@ -6,6 +6,9 @@ $GLOBALS["wordArray"] = unserialize($a);
 $myfile2 = fopen("negativeWordArray.txt", "r") or die("Unable to open file!");
 $GLOBALS["negativeWordArray"] = unserialize(fgets($myfile2));
 
+$myfile3 = fopen("positiveWordArray.txt", "r") or die("Unable to open file!");
+$GLOBALS["positiveWordArray"] = unserialize(fgets($myfile3));
+
 function returnMaximum($a)
 {
 	$g = $GLOBALS["wordArray"][$a]["g"];
@@ -28,7 +31,11 @@ function returnSentiment($a)
 	$score = 0;
 	foreach ($temp as $key => $value) 
 	{
-		if (array_key_exists($value, $GLOBALS["wordArray"]))
+		if (in_array($value, $GLOBALS["positiveWordArray"]))
+		{
+			$score += 1;
+		}
+		else if (array_key_exists($value, $GLOBALS["wordArray"]))
 		{
 			 if (returnMaximum($value) == "g")
 			 {
