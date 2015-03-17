@@ -137,7 +137,7 @@
 						<table class ="table">
 						<tbody>
 					<?php 
-					$twitterQueryString = "https://api.twitter.com/1.1/search/tweets.json?q=".$twitterQueryString."&result_type=recent&count=30";
+					$twitterQueryString = "https://api.twitter.com/1.1/search/tweets.json?q=".$twitterQueryString."&result_type=recent&count=100";
 					$tweets = $twitter -> get($twitterQueryString);
 					$array = array("text" => array(), "sentiment" => array());
 					$count = 0;
