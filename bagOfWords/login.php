@@ -103,10 +103,10 @@
 					<img class = "navbar-brand"   style="padding: 0.5em;width: 3.8em; height: 3.8em; float: left; margin-top: -1.25em" src="menuconreal.png">
 					</a>
 					<div class = "collapse navbar-collapse navHeaderCollapse">
-					<ul class = "nav navbar-nav navbar-right">
-						<li><a href = "index.php">LOG OUT</a></li>
-					</ul>
-				</div>
+						<ul class = "nav navbar-nav navbar-right">
+							<li><a href = "index.php">LOG OUT</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 

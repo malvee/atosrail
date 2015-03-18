@@ -9,16 +9,21 @@ $GLOBALS["negativeWordArray"] = unserialize(fgets($myfile2));
 $myfile3 = fopen("positiveWordArray.txt", "r") or die("Unable to open file!");
 $GLOBALS["positiveWordArray"] = unserialize(fgets($myfile3));
 
+$myfile4 = fopen("returnCountArray.txt", "r") or die("Unable to open file!");
+$GLOBALS["returnCountArray"] = unserialize(fgets($myfile4));
 function returnMaximum($a)
 {
 	$g = $GLOBALS["wordArray"][$a]["g"];
 	$b = $GLOBALS["wordArray"][$a]["b"];
 	$n = $GLOBALS["wordArray"][$a]["n"];
-	if ($g > $b && $g > $n)
+	$gCount = $GLOBALS["returnCountArray"]["g"];
+	$bCount = $GLOBALS["returnCountArray"]["b"];
+	$nCount = $GLOBALS["returnCountArray"]["n"];
+	if ( (  ($g/$gCount) > ($b/$bCount) ) && ( ($g/$gCount) > ($n/$nCount) ) )
 	{
 		return "g";
 	}
-	else if ($b > $g && $b > $n)
+	else if ( ( ($b/$bCount) > ($g/$gCount) ) && ( ($b/$bCount) > ($n/$nCount)  )  )
 	{
 		return "b";
 	}
