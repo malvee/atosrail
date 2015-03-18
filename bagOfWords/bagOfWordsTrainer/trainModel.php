@@ -38,9 +38,14 @@ $temp = array();
 foreach ($fileArray as $x)
 {
 	$temp = explode(">!!!<", $x);
-	$structuredArray[$c]["text"] = trim(strtolower(preg_replace("/[^a-zA-Z ]+/", "", trim($temp[0]))));
-	$structuredArray[$c]["sentiment"] = strtolower(trim($temp[1]));
-	$c++;
+	$z = trim( strtolower( preg_replace("([^a-zA-Z ]+)", "", preg_replace("([@#][^ ]?)", "", trim($temp[0])))));
+	if($z !== "")
+	{
+		$structuredArray[$c]["text"] = $z;
+		$structuredArray[$c]["sentiment"] = strtolower(trim($temp[1]));
+		$c++;
+	}
+
 }
 
 $wordArray = array("a" => array("g" => 0, "b" => 0, "n" => 0));
@@ -48,7 +53,7 @@ $wordArray = array("a" => array("g" => 0, "b" => 0, "n" => 0));
 foreach($structuredArray as $x)
 {
 	$tempArray = array();
-	$tempArray = explode(" ", $x["text"]);
+	$tempArray = explode(" ",$x["text"]);
 	$currentSentiment = $x["sentiment"];
 	foreach ($tempArray as $word)
 	{
