@@ -88,7 +88,7 @@
 				$twitterQueryString .= "%40".$x."%20OR%20"."%23".$x."%20OR%20";
 			}
 			$_SESSION["loggedIn"] = 1;
-			
+			$_SESSION["username"] =  trim($ans[0]["username"]);
 			$api_key='ba28ee0ae71432fe85206c36d0e6a641';
 			$consumer = "5blMAfvgOmZBZyfM2usfcX97c";
 			$counsumerSecret = "oYVA9roicxA0nVSX7kXujVnb0Eyn0EFpqy4cSpQ5ZpUyzxeaHQ";

@@ -48,7 +48,8 @@ error_reporting(0);
     {
         die(var_dump($e));
     }
-    $sql_select = "SELECT * FROM users WHERE username = 'daviddaly'";
+    $username = trim($_SESSION["username"]);
+    $sql_select = "SELECT * FROM users WHERE username = '$username'";
     $stmt = $conn->query($sql_select);
     $ans = $stmt->fetchAll();
 	$GLOBALS["dbArray"] = preg_split('/\s+/', trim($ans[0]["query"]));
@@ -101,7 +102,7 @@ error_reporting(0);
 			$string .= (" ".$x);
 		}
 		$string = trim($string);
-		$sql = "UPDATE users SET query= '$string'  WHERE username='daviddaly'";
+		$sql = "UPDATE users SET query= '$string'  WHERE username='$username'";
 		$stmt = $conn->prepare($sql);
     	$stmt->execute();
 		$string = "";
@@ -130,7 +131,7 @@ error_reporting(0);
 				$string .= (" ".$x);
 			}
 			$string = trim($string);
-			$sql = "UPDATE users SET query= '$string'  WHERE username='daviddaly'";
+			$sql = "UPDATE users SET query= '$string'  WHERE username='$username'";
 			$stmt = $conn->prepare($sql);
 	    	$stmt->execute();
 			$string = "";
