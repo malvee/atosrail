@@ -19,6 +19,9 @@
     include "runAlgo.php";
 	include "twitteroauth.php";
 	session_start();
+
+
+
 	function safeTweet($x)
 	{
 		$xArray =  preg_split('/\s+/', $x);
@@ -96,7 +99,7 @@
 
 		
 
-			
+
 			<div class = "navbar navbar-default navbar-static-top">
 				<div class ="container">
 					<a href="settings.php" class = "navbar-brand" >
@@ -104,6 +107,7 @@
 					</a>
 					<div class = "collapse navbar-collapse navHeaderCollapse">
 						<ul class = "nav navbar-nav navbar-right">
+							<li><a onclick="window.location.reload();">RELOAD</a></li>
 							<li><a href = "index.php">LOG OUT</a></li>
 						</ul>
 					</div>
