@@ -20,7 +20,9 @@
 	include "twitteroauth.php";
 	session_start();
 
-
+	$redCodes = array("#800000","#990000","#B20000","#CC0000","#E60000","#FF0000","#FF3333","#FF4D4D","#FF6666","#FF8080","#FF9999","#FFB2B2");
+	$greenCodes = array("#004D00","#005A00","#006600","#007300","#008000","#198D19","#339933","4DA64D","66B366","#80C080");
+	$neutralCodes = array("#FFFF00","#FFFF66","#FFFF80","#FFFF99","#FFFFB2");
 
 	function safeTweet($x)
 	{
