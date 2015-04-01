@@ -20,9 +20,47 @@
 	include "twitteroauth.php";
 	session_start();
 
-	$redCodes = array("#800000","#990000","#B20000","#CC0000","#E60000","#FF0000","#FF3333","#FF4D4D","#FF6666","#FF8080","#FF9999","#FFB2B2");
-	$greenCodes = array("#004D00","#005A00","#006600","#007300","#008000","#198D19","#339933","4DA64D","66B366","#80C080");
-	$neutralCodes = array("#FFFF00","#FFFF66","#FFFF80","#FFFF99","#FFFFB2");
+	$redCodes = array("-10"=>"#800000",
+					  "-9"=>"#990000",
+					  "-8"=>"#B20000",
+					  "-7"=>"#CC0000",
+					  "-6"=>"#E60000",
+					  "-5"=>"#FF0000",
+					  "-4"=>"#FF3333",
+					  "-3"=>"#FF4D4D",
+					  "-2"=>"#FF6666",
+					  "-1"=>"#FF8080",
+					 );
+
+	$greenCodes = array("10"=>"#004D00",
+						"9"=>"#005A00",
+						"8"=>"#006600",
+						"7"=>"#007300",
+						"6"=>"#008000",
+						"5"=>"#198D19",
+						"4"=>"#339933",
+						"3"=>"4DA64D",
+						"2"=>"66B366",
+						"1"=>"#80C080");
+
+	//$neutralCodes = array("#FFFF00","#FFFF66","#FFFF80","#FFFF99","#FFFFB2");
+	
+
+	function returnColorCode($a,$b)
+	{
+		if (array_key_exists($a, $b)
+		{
+			return $b[$a];
+		}
+		else if($a > 10)
+		{
+			return $b[0];
+		}
+		else if($a < -10)
+		{
+			return $b[0];
+		}
+	}
 
 	function safeTweet($x)
 	{
@@ -178,7 +216,7 @@
 									$tweetText = safeTweet($tweetText). " ". $score;
 									if ((string)$sentiment == "g")
 									{
-										echo "<tr class = \"success\">
+										echo "<tr bgcolor = \"array_map("returnColorCode",$score,$greenCodes)\">
     									<center><td>";
     									?>
     									<script>
@@ -199,7 +237,7 @@
 									}
 									else if((string)$sentiment == "b")
 									{
-										echo "<tr class = \"danger\">
+										echo "<tr bgcolor = \"array_map("returnColorCode",$score,$redCodes)\">
     									<center><td>";?>
     									<script >
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -219,7 +257,7 @@
 									}
 									else if((string)$sentiment == "n")
 									{
-										echo "<tr class = \"warning\">
+										echo "<tr bgcolor = \"FFFF80\">
     									<center><td>";?>
     									<script>
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -239,7 +277,7 @@
 									}
 									else
 									{
-										echo "<tr class = \"warning\">
+										echo "<tr bgcolor = \"FFFF80\">
     									<center><td>";?>
     									<script>
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
