@@ -20,47 +20,7 @@
 	include "twitteroauth.php";
 	session_start();
 
-	$redCodes = array("-10"=>"#800000",
-					  "-9"=>"#990000",
-					  "-8"=>"#B20000",
-					  "-7"=>"#CC0000",
-					  "-6"=>"#E60000",
-					  "-5"=>"#FF0000",
-					  "-4"=>"#FF3333",
-					  "-3"=>"#FF4D4D",
-					  "-2"=>"#FF6666",
-					  "-1"=>"#FF8080",
-					 );
 
-	$greenCodes = array("10"=>"#004D00",
-						"9"=>"#005A00",
-						"8"=>"#006600",
-						"7"=>"#007300",
-						"6"=>"#008000",
-						"5"=>"#198D19",
-						"4"=>"#339933",
-						"3"=>"4DA64D",
-						"2"=>"66B366",
-						"1"=>"#80C080");
-
-	//$neutralCodes = array("#FFFF00","#FFFF66","#FFFF80","#FFFF99","#FFFFB2");
-	
-
-	function returnColorCode($a,$b)
-	{
-		if (array_key_exists($a, $b)
-		{
-			return $b[$a];
-		}
-		else if($a > 10)
-		{
-			return $b[0];
-		}
-		else if($a < -10)
-		{
-			return $b[0];
-		}
-	}
 
 	function safeTweet($x)
 	{
@@ -93,10 +53,10 @@
 		}
 		return implode(" ", $words);
 	}
-	$host = "eu-cdbr-azure-north-b.cloudapp.net";
-    $user = "b1ab8a4c6aa690";
-    $pwd = "efd91e32";
-    $db = "atosraiAaM0G4XAp";
+	$host = "eu-cdbr-azure-north-c.cloudapp.net";
+    $user = "bf5a119d46ef1d";
+    $pwd = "1b7bd7ec";
+    $db = "atosraiASL0S22pH";
     try 
     {
         $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
@@ -216,7 +176,7 @@
 									$tweetText = safeTweet($tweetText). " ". $score;
 									if ((string)$sentiment == "g")
 									{
-										echo "<tr bgcolor = \"array_map("returnColorCode",$score,$greenCodes)\">
+										echo "<tr class = \"success\">
     									<center><td>";
     									?>
     									<script>
@@ -237,7 +197,7 @@
 									}
 									else if((string)$sentiment == "b")
 									{
-										echo "<tr bgcolor = \"array_map("returnColorCode",$score,$redCodes)\">
+										echo "<tr class = \"danger\">
     									<center><td>";?>
     									<script >
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -257,7 +217,7 @@
 									}
 									else if((string)$sentiment == "n")
 									{
-										echo "<tr bgcolor = \"FFFF80\">
+										echo "<tr class = \"warning\">
     									<center><td>";?>
     									<script>
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -277,7 +237,7 @@
 									}
 									else
 									{
-										echo "<tr bgcolor = \"FFFF80\">
+										echo "<tr class = \"warning\">
     									<center><td>";?>
     									<script>
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
