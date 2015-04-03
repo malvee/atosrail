@@ -193,6 +193,7 @@
 										$array["sentiment"][$count] = (string) $sentiment;
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string) dateF($t->created_at);
+										$array["score"][$count] = (string) $score;
 										$contains[$count] = (string)$text;
 										$count++;
 									}
@@ -214,6 +215,7 @@
 										$array["sentiment"][$count] = (string) $sentiment;
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string)dateF($t->created_at);
+										$array["score"][$count] = (string) $score;
 										$contains[$count] = (string)$text;
 										$count++;
 									}
@@ -234,6 +236,7 @@
 										$array["sentiment"][$count] = (string) $sentiment;
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string) dateF($t->created_at);
+										$array["score"][$count] = (string) $score;
 										$contains[$count] = (string)$text;
 										$count++;
 									}
@@ -254,6 +257,7 @@
 										$array["sentiment"][$count] = "neutral";
 										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
 										$array["created_at"][$count] = (string) dateF($t->created_at);
+										$array["score"][$count] = (string) $score;
 										$contains[$count] = (string)$text;
 										$count++;
 
