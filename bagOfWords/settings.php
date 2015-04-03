@@ -35,10 +35,10 @@ error_reporting(0);
  //{
 	$countForBreakOne = 0;
 	$countForBreakTwo = 0;
-	$host = "eu-cdbr-azure-north-b.cloudapp.net";
-    $user = "b1ab8a4c6aa690";
-    $pwd = "efd91e32";
-    $db = "atosraiAaM0G4XAp";
+		$host = "eu-cdbr-azure-north-c.cloudapp.net";
+	    $user = "bf5a119d46ef1d";
+	    $pwd = "1b7bd7ec";
+	    $db = "atosraiASL0S22pH";
     try 
     {
         $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
