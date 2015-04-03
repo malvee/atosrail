@@ -1,25 +1,25 @@
 tr.yellowClass{
-	background-color: #FFFFB2;
+	background-color: #FFFFE0;
 }
 	
 tr.goodColor1{
-	background-color: #A3D1A3;
+	background-color: #A3D2A3;
 }
 
 tr.goodColor2{
-	background-color: #8CC68C;
+	background-color: #91C891;
 }
 
 tr.goodColor3{
-	background-color: #75BB75;
+	background-color: #7EBF7E;
 }
 
 tr.goodColor4{
-	background-color: #5EAF5E;
+	background-color: #6CB66C;
 }
 
 tr.goodColor5{
-	background-color: #47A447;
+	background-color: #59AD59;
 }
 
 /*tr.goodColor6{
@@ -43,23 +43,23 @@ tr.goodColor10{
 }*/
 
 tr.badColor1{
-	background-color: #FF8585;
+	background-color: #FFADAD;
 }
 
 tr.badColor2{
-	background-color: #FF7070;
+	background-color: #FF9999;
 }
 
 tr.badColor3{
-	background-color: #FF5C5C;
+	background-color: #FF8585;
 }
 
 tr.badColor4{
-	background-color: #FF4747;
+	background-color: #FF7070;
 }
 
 tr.badColor5{
-	background-color: #FF3333;
+	background-color: #FF5C5C;
 }
 
 /*tr.badColor6{

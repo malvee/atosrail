@@ -2,6 +2,7 @@
 <html>
 	<head>
 <?php
+include "chooseColorDepth.php";
 session_start();
 error_reporting(0);
 if ($_SESSION["loggedIn"] ==1)
@@ -11,6 +12,7 @@ if ($_SESSION["loggedIn"] ==1)
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/styles.css" rel = "stylesheet">
+	<link href  = "../css/selectTweetColorDepth.css" rel = "stylesheet">
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="../js/bootstrap.js"></script>
 		<script src="../twemoji/twemoji.min.js"></script>
@@ -70,8 +72,8 @@ if ($_SESSION["loggedIn"] ==1)
 					{
 						if ($temp == "b")
 						{
-
-echo "<tr class = \"danger\">
+							$badColorDepth = decideBadColorDepth($score);
+							echo "<tr class = \"$badColorDepth\">
     									<center><td>";
     									?>
 										

@@ -11,6 +11,7 @@ if ($_SESSION["loggedIn"] ==1)
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/styles.css" rel = "stylesheet">
+	<link href  = "../css/selectTweetColorDepth.css" rel = "stylesheet">
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="../js/bootstrap.js"></script>
 		<script src="../twemoji/twemoji.min.js"></script>
@@ -71,7 +72,7 @@ if ($_SESSION["loggedIn"] ==1)
 						if ($temp == "n")
 						{
 
-echo "<tr class = \"warning\">
+										echo "<tr class = \"yellowClass\">
     									<center><td>";
     									?>
 										
