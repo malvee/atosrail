@@ -6,6 +6,7 @@
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/styles.css" rel = "stylesheet">
+	<link href  = "../css/selectTweetColorDepth.css" rel = "stylesheet">
  	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../twemoji/twemoji.min.js"></script>
@@ -20,7 +21,56 @@
 	include "twitteroauth.php";
 	session_start();
 
+	
 
+
+	function decideGoodColorDepth($a)
+	{
+		if($a == 1 || $a==2)
+			{
+				return "goodColor5";
+			}
+			else if($a == 3 || $a==4)
+			{
+				return "goodColor6";
+			}
+			else if($a == 5 || $a == 6)
+			{
+				return "goodColor3";
+			}
+			else if($a == 7 || $a==8)
+			{
+				return "goodColor4";
+			}
+			else if($a >= 9)
+			{
+				return "goodColor5";
+			}
+	}
+
+	function decideBadColorDepth($a)
+	{
+			if($a == -1 || $a==-2)
+			{
+				return "badColor1";
+			}
+			else if($a == -3 || $a== -4)
+			{
+				return "badColor2";
+			}
+			else if($a == -5 || $a == -6)
+			{
+				return "badColor3";
+			}
+			else if($a == -7 || $a== -8)
+			{
+				return "badColor4";
+			}
+			else if($a <= -9)
+			{
+				return "badColor5";
+			}
+	}
 
 	function safeTweet($x)
 	{
@@ -171,12 +221,13 @@
 									$text =  preg_replace("/[^a-zA-Z ]+/", "", $t->text);
 									$returnSentiment = returnSentiment($text);
 									$sentiment= $returnSentiment[1];
-									$score = $returnSentiment[0];
+									$score = $returnSentiment[0]; 
 									$tweetText = isLink((string)$t->text);
-									$tweetText = safeTweet($tweetText). " ". $score;
+									$tweetText = safeTweet($tweetText). " ". $score; //array_map("returnColorCode",$score,$greenCodes)
 									if ((string)$sentiment == "g")
 									{
-										echo "<tr class = \"success\">
+										$goodColorDepth = decideGoodColorDepth($score);
+										echo "<tr class = \"$goodColorDepth\"> 
     									<center><td>";
     									?>
     									<script>
@@ -197,7 +248,8 @@
 									}
 									else if((string)$sentiment == "b")
 									{
-										echo "<tr class = \"danger\">
+										$badColorDepth = decideBadColorDepth($score);
+										echo "<tr class = \"$badColorDepth\">
     									<center><td>";?>
     									<script >
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -237,7 +289,7 @@
 									}
 									else
 									{
-										echo "<tr class = \"warning\">
+										echo "<tr class=\"warning\">
     									<center><td>";?>
     									<script>
     									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
