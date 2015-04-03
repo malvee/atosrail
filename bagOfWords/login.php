@@ -28,11 +28,11 @@
 	{
 		if($a == 1 || $a==2)
 			{
-				return "goodColor5";
+				return "goodColor1";
 			}
 			else if($a == 3 || $a==4)
 			{
-				return "goodColor6";
+				return "goodColor2";
 			}
 			else if($a == 5 || $a == 6)
 			{
