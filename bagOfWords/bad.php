@@ -72,7 +72,8 @@ if ($_SESSION["loggedIn"] ==1)
 					{
 						if ($temp == "b")
 						{
-							$badColorDepth = decideBadColorDepth($array["score"]);
+							$derivedScore = $array["score"][$count];
+							$badColorDepth = decideBadColorDepth($derivedScore);
 							echo "<tr class = \"$badColorDepth\">
     									<center><td>";
     									?>

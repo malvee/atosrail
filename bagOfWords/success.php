@@ -72,10 +72,11 @@ if ($_SESSION["loggedIn"] ==1)
 					{
 						if ($temp == "g")
 						{
-								$goodColorDepth = decideGoodColorDepth($array["score"]);
-								echo "<tr class = \"$goodColorDepth\">
-    									<center><td>";
-    									?>
+							$derivedScore = $array["score"][$count];
+							$goodColorDepth = decideGoodColorDepth($derivedScore);
+							echo "<tr class = \"$goodColorDepth\">
+    								<center><td>";
+    							?>
 										
 										
     									
