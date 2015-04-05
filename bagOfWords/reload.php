@@ -180,6 +180,7 @@
         										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
         										$array["created_at"][$count] = (string) dateF($t->created_at);
         										$contains[$count] = (string)$text;
+                                                $array["score"][$count] = (string) $score;
         										$count++;
         									}
         									else if((string)$sentiment == "b")
@@ -201,6 +202,7 @@
         										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
         										$array["created_at"][$count] = (string)dateF($t->created_at);
         										$contains[$count] = (string)$text;
+                                                $array["score"][$count] = (string) $score;
         										$count++;
         									}
         									else if((string)$sentiment == "n")
@@ -221,6 +223,7 @@
         										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
         										$array["created_at"][$count] = (string) dateF($t->created_at);
         										$contains[$count] = (string)$text;
+                                                $array["score"][$count] = (string) $score;
         										$count++;
         									}
         									else
@@ -241,6 +244,7 @@
         										$array["profile_pic"][$count] = (string) $t->user->profile_image_url;
         										$array["created_at"][$count] = (string) dateF($t->created_at);
         										$contains[$count] = (string)$text;
+                                                $array["score"][$count] = (string) $score;
         										$count++;
 
             							
