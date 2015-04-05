@@ -6,6 +6,7 @@
 	<meta name = "viewport" content = "width= device-width, initial-scale=1.0">
 	<link href  = "../css/bootstrap.min.css" rel = "stylesheet">
 	<link href  = "../css/styles.css" rel = "stylesheet">
+    <link href  = "../css/selectTweetColorDepth.css" rel = "stylesheet">
  	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../twemoji/twemoji.min.js"></script>
@@ -18,6 +19,7 @@
     include "testDate.php"; 
     include "runAlgo.php";
 	include "twitteroauth.php";
+    include "chooseColorDepth.php";
 	session_start();
 
 
@@ -160,7 +162,8 @@
         									$tweetText = safeTweet($tweetText). " ". $score;
         									if ((string)$sentiment == "g")
         									{
-        										echo "<tr class = \"success\">
+                                                $goodColorDepth = decideGoodColorDepth($score);
+        										echo "<tr class = \"$goodColorDepth\"> 
             									<center><td>";
             									?>
             									<script>
@@ -181,7 +184,8 @@
         									}
         									else if((string)$sentiment == "b")
         									{
-        										echo "<tr class = \"danger\">
+                                                $badColorDepth = decideBadColorDepth($score);
+        										echo "<tr class = \"$badColorDepth\">
             									<center><td>";?>
             									<script >
             									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -201,7 +205,7 @@
         									}
         									else if((string)$sentiment == "n")
         									{
-        										echo "<tr class = \"warning\">
+        										echo "<tr class = \"yellowClass\">
             									<center><td>";?>
             									<script>
             									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
@@ -221,7 +225,7 @@
         									}
         									else
         									{
-        										echo "<tr class = \"warning\">
+        										echo "<tr class = \"yellowClass\">
             									<center><td>";?>
             									<script>
             									var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
