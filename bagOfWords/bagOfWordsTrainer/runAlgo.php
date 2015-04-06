@@ -6,16 +6,24 @@ $GLOBALS["wordArray"] = unserialize($a);
 $myfile2 = fopen("negativeWordArray.txt", "r") or die("Unable to open file!");
 $GLOBALS["negativeWordArray"] = unserialize(fgets($myfile2));
 
+$myfile3 = fopen("positiveWordArray.txt", "r") or die("Unable to open file!");
+$GLOBALS["positiveWordArray"] = unserialize(fgets($myfile3));
+
+$myfile4 = fopen("returnCountArray.txt", "r") or die("Unable to open file!");
+$GLOBALS["returnCountArray"] = unserialize(fgets($myfile4));
 function returnMaximum($a)
 {
 	$g = $GLOBALS["wordArray"][$a]["g"];
 	$b = $GLOBALS["wordArray"][$a]["b"];
 	$n = $GLOBALS["wordArray"][$a]["n"];
-	if ($g > $b && $g > $n)
+	$gCount = $GLOBALS["returnCountArray"]["g"];
+	$bCount = $GLOBALS["returnCountArray"]["b"];
+	$nCount = $GLOBALS["returnCountArray"]["n"];
+	if ( (  ($g/$gCount) > ($b/$bCount) ) && ( ($g/$gCount) > ($n/$nCount) ) )
 	{
 		return "g";
 	}
-	else if ($b > $g && $b > $n)
+	else if ( ( ($b/$bCount) > ($g/$gCount) ) && ( ($b/$bCount) > ($n/$nCount)  )  )
 	{
 		return "b";
 	}
@@ -28,7 +36,11 @@ function returnSentiment($a)
 	$score = 0;
 	foreach ($temp as $key => $value) 
 	{
-		if (array_key_exists($value, $GLOBALS["wordArray"]))
+		if (in_array($value, $GLOBALS["positiveWordArray"]))
+		{
+			$score += 1;
+		}
+		else if (array_key_exists($value, $GLOBALS["wordArray"]))
 		{
 			 if (returnMaximum($value) == "g")
 			 {
@@ -45,14 +57,25 @@ function returnSentiment($a)
 		}
 	
 	}
+	$returnArray = array();
 	if ($score > 0)
-		return "g";
+	{
+		$returnArray[0] = $score;
+		$returnArray[1] = "g";
+	}
 	else if ($score < 0)
-		return "b";
+	{
+		$returnArray[0] = $score;
+		$returnArray[1] = "b";
+	}
 	else
-		return "n";
+	{
+		$returnArray[0] = $score;
+		$returnArray[1] = "n";
+	}
+	return $returnArray;
 	
 }
 
-echo returnSentiment("  insulting insultingly ");
+
 ?>
