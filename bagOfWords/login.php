@@ -13,7 +13,7 @@
 		
 </head>
 
-<body>
+<body background = "photography.png">
 	
 <?php
     include "testDate.php"; 

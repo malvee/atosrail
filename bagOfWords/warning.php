@@ -16,7 +16,7 @@ if ($_SESSION["loggedIn"] ==1)
 		<script src="../js/bootstrap.js"></script>
 		<script src="../twemoji/twemoji.min.js"></script>
 	</head>
-	<body>
+	<body background = "photography.png">
 			
 			<div class = "navbar navbar-default navbar-static-top">
 

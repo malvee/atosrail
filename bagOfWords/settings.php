@@ -9,13 +9,13 @@
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 	</head>
-	<body>
+	<body background = "photography.png">
 
 
 		<div class = "navbar navbar-default navbar-static-top">
 			<div class = "container">
 				<a  class = "navbar-brand" >
-					<img class = "navbar-brand" class = "active" style="padding: 0.5em;width: 5em; height: 4em; float: left; margin-top: -1.25em" src="logo.jpg">
+					<img class = "navbar-brand" class = "active" style="padding: 0.3em;width: 4.5em; height: 3.5em; float: left; margin-top: -1.25em" src="logo.jpg">
 				</a>
 
 				<div class = "collapse navbar-collapse navHeaderCollapse">
