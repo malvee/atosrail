@@ -87,6 +87,7 @@
 			{
 				$twitterQueryString .= "%40".$x."%20OR%20"."%23".$x."%20OR%20";
 			}
+			$twitterQueryString = substr($twitterQueryString,0, strlen($twitterQueryString) - 8);
 			$_SESSION["loggedIn"] = 1;
 			$_SESSION["username"] =  trim($ans[0]["username"]);
 			$api_key='ba28ee0ae71432fe85206c36d0e6a641';
@@ -108,6 +109,7 @@
 					<div class = "collapse navbar-collapse navHeaderCollapse">
 						<ul class = "nav navbar-nav navbar-right">
 							<li><a href="reload.php">RELOAD</a></li>
+							<li><a href="next.php">NEXT</a></li>
 							<li><a href = "index.php">LOG OUT</a></li>
 						</ul>
 					</div>
@@ -263,6 +265,7 @@
 
     							
 									}
+									$_SESSION["lastTweet"]  = $t->id_str;
 									
 								}
 							}
@@ -270,7 +273,7 @@
 						}
 				
 					}
-					
+					echo $_SESSION["lastTweet"];
 					$_SESSION["passed_array"] = $array;
 					echo "<p>Tweets Ready</p>";
 					?>
