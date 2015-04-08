@@ -152,25 +152,46 @@
                                 {
                                     if (isset($t->text))
                                     {
-                                        if ( !isIn( preg_replace("/[^a-zA-Z ]+/", "", $t->text), $count))
+                                        if($c == 0)
                                         {
-                                            if($c == 0)
-                                            {
-                                                $_SESSION["firstTweet"] = $t->id_str;
-                                            }
-                                            $c++;
-                                            $text =  preg_replace("/[^a-zA-Z ]+/", "", $t->text);
-                                            $returnSentiment = returnSentiment($text);
-                                            $sentiment= $returnSentiment[1];
-                                            $score = $returnSentiment[0];
-                                            $tweetText = isLink((string)$t->text);
-                                            $tweetText = safeTweet($tweetText). " ". $score;
-                                            if ((string)$sentiment == "g")
-                                            {
-                                                echo "<tr class = \"success\">
-                                                <center><td>";
-                                                ?>
-                                                <script>
+                                            $_SESSION["firstTweet"] = $t->id_str;
+                                        }
+                                        $c++;
+                                        $text =  preg_replace("/[^a-zA-Z ]+/", "", $t->text);
+                                        $returnSentiment = returnSentiment($text);
+                                        $sentiment= $returnSentiment[1];
+                                        $score = $returnSentiment[0];
+                                        $tweetText = isLink((string)$t->text);
+                                        $tweetText = safeTweet($tweetText). " ". $score;
+                                        if ((string)$sentiment == "g")
+                                        {
+                                            $goodColorDepth = decideGoodColorDepth($score);
+                                            echo "<tr class = \"$goodColorDepth\">
+                                            <center><td>";
+                                            ?>
+                                            <script>
+                                            var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
+                                            document.write(e);
+                                            </script>
+                                            <?php 
+                                            echo"</td></center>"
+                                            ."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
+                                            ."<center><td>".dateF($t->created_at)."</td></center>"
+                                            ."</tr>";
+                                            $array["text"][$count] = addcslashes($tweetText, '"');
+                                            $array["sentiment"][$count] = (string) $sentiment;
+                                            $array["profile_pic"][$count] = (string) $t->user->profile_image_url;
+                                            $array["created_at"][$count] = (string) dateF($t->created_at);
+                                            $array["score"][$count] = (string) $score;
+                                            $contains[$count] = (string)$text;
+                                            $count++;
+                                        }
+                                        else if((string)$sentiment == "b")
+                                        {
+                                            $badColorDepth = decideBadColorDepth($score);
+                                            echo "<tr class = \"$badColorDepth\">
+                                            <center><td>";?>
+                                                <script >
                                                 var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
                                                 document.write(e);
                                                 </script>
@@ -179,18 +200,19 @@
                                                 ."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
                                                 ."<center><td>".dateF($t->created_at)."</td></center>"
                                                 ."</tr>";
-                                                $array["text"][$count] = (string) $tweetText;
+                                                $array["text"][$count] = addcslashes($tweetText, '"');
                                                 $array["sentiment"][$count] = (string) $sentiment;
                                                 $array["profile_pic"][$count] = (string) $t->user->profile_image_url;
-                                                $array["created_at"][$count] = (string) dateF($t->created_at);
+                                                $array["created_at"][$count] = (string)dateF($t->created_at);
+                                                $array["score"][$count] = (string) $score;
                                                 $contains[$count] = (string)$text;
                                                 $count++;
                                             }
-                                            else if((string)$sentiment == "b")
+                                            else if((string)$sentiment == "n")
                                             {
-                                                echo "<tr class = \"danger\">
+                                                echo "<tr class = \"yellowClass\">
                                                 <center><td>";?>
-                                                    <script >
+                                                    <script>
                                                     var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
                                                     document.write(e);
                                                     </script>
@@ -199,89 +221,71 @@
                                                     ."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
                                                     ."<center><td>".dateF($t->created_at)."</td></center>"
                                                     ."</tr>";
-                                                    $array["text"][$count] = (string) $tweetText;
+                                                    $array["text"][$count] = addcslashes($tweetText, '"');
                                                     $array["sentiment"][$count] = (string) $sentiment;
                                                     $array["profile_pic"][$count] = (string) $t->user->profile_image_url;
-                                                    $array["created_at"][$count] = (string)dateF($t->created_at);
+                                                    $array["created_at"][$count] = (string) dateF($t->created_at);
+                                                    $array["score"][$count] = (string) $score;
                                                     $contains[$count] = (string)$text;
                                                     $count++;
                                                 }
-                                                else if((string)$sentiment == "n")
+                                                else
                                                 {
-                                                    echo "<tr class = \"warning\">
-                                                    <center><td>";?>
-                                                        <script>
-                                                        var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
-                                                        document.write(e);
-                                                        </script>
-                                                        <?php 
-                                                        echo"</td></center>"
-                                                        ."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
-                                                        ."<center><td>".dateF($t->created_at)."</td></center>"
-                                                        ."</tr>";
-                                                        $array["text"][$count] = (string) $tweetText;
-                                                        $array["sentiment"][$count] = (string) $sentiment;
-                                                        $array["profile_pic"][$count] = (string) $t->user->profile_image_url;
-                                                        $array["created_at"][$count] = (string) dateF($t->created_at);
-                                                        $contains[$count] = (string)$text;
-                                                        $count++;
-                                                    }
-                                                    else
-                                                    {
-                                                        echo "<tr class = \"warning\">
-                                                        <center><td>";?>
-                                                            <script>
-                                                            var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
-                                                            document.write(e);
-                                                            </script>
-                                                            <?php 
-                                                            echo"</td></center>"
-                                                            ."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
-                                                            ."<center><td>".dateF($t->created_at)."</td></center>"
-                                                            ."</tr>";
-                                                            $array["text"][$count] = (string) $tweetText;
-                                                            $array["sentiment"][$count] = "neutral";
-                                                            $array["profile_pic"][$count] = (string) $t->user->profile_image_url;
-                                                            $array["created_at"][$count] = (string) dateF($t->created_at);
-                                                            $contains[$count] = (string)$text;
-                                                            $count++;
+                                                  echo "<tr class = \"yellowClass\">
+                                                  <center><td>";?>
+                                                      <script>
+                                                      var e = twemoji.parse("<?php echo addcslashes($tweetText, '\"'); ?>"); 
+                                                      document.write(e);
+                                                      </script>
+                                                      <?php 
+                                                      echo"</td></center>"
+                                                      ."<center><td>". "<img src =". $t->user->profile_image_url .">" ."</td></center>"
+                                                      ."<center><td>".dateF($t->created_at)."</td></center>"
+                                                      ."</tr>";
+                                                      $array["text"][$count] = addcslashes($tweetText, '"');
+                                                      $array["sentiment"][$count] = (string) $sentiment;
+                                                      $array["profile_pic"][$count] = (string) $t->user->profile_image_url;
+                                                      $array["created_at"][$count] = (string) dateF($t->created_at);
+                                                      $array["score"][$count] = (string) $score;
+                                                      $contains[$count] = (string)$text;
+                                                      $count++;
 
 
-                                                        }
-                                                        $_SESSION["lastTweet"] = $t->id_str;
+                                                  }
+                                                  $_SESSION["lastTweet"] = $t->id_str;
 
-                                                    }
-                                                }
+                                              }
+                                          }
 
-                                            }
+                                      }
 
-                                        }
+                                  }
 
-                                        $_SESSION["passed_array"] = $array;
-                                        echo "<p>Tweets Ready</p>";
+                                  $_SESSION["passed_array"] = $array;
+                                  echo "<p>Tweets Ready</p>";
 
 
 
-                                        ?>
-                                    </tbody>
-                                </table>
-                                
+                                  ?>
+                              </tbody>
+                          </table>
+                          
 
-                                
-                                
+                          
+                          
 
 
-                            </div>
-                        </div>
-                    </div>
-                </center>
-                <br><br><br><br>
+                      </div>
+                  </div>
+              </div>
+          </center>
+          <br><br><br><br>
 
-                
-                <div class = "navbar navbar-default navbar-fixed-bottom" >
-                    <div class = "container">
-                        <p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
-                    </div>
-                </div>
-            </body>
-            </html>
+          
+          <div class = "navbar navbar-default navbar-fixed-bottom" >
+            <div class = "container">
+                <p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
+            </div>
+        </div>
+    </body>
+    </html>
