@@ -260,6 +260,7 @@
 													$count++;
 													
 												}
+												$_SESSION["lastTweet"] = $t -> id_str;
 												
 											}
 										}
