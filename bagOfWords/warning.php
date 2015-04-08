@@ -30,6 +30,7 @@ if ($_SESSION["loggedIn"] ==1)
 					<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
 						<li><a href="reload.php">RELOAD</a></li>
+						<li><a href="next.php">NEXT</a></li>
 						<li><a href = "index.php">LOG OUT</a></li>
 					</ul>
 				</div>
