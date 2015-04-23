@@ -277,5 +277,8 @@
                     <p class = "navbar-text pull-left">2014 Developed by UCL ATOS Team 4<br>All Rights Reserved</p>
                 </div>
             </div>
+            <script>
+            window.location = "all.php";
+            </script>
         </body>
         </html>
